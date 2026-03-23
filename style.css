@@ -1,0 +1,449 @@
+/* ─── Reset & Base ───────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #0D1B2A;
+  color: #E8F0F8;
+  font-family: 'DM Sans', sans-serif;
+  min-height: 100vh;
+}
+
+/* ─── Header ─────────────────────────────────────────────────────── */
+.header {
+  background: #0A1628;
+  border-bottom: 2px solid #C8A84B;
+  padding: .75rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: .5rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.6rem;
+  letter-spacing: 2px;
+  color: #C8A84B;
+}
+
+.nba-badge {
+  background: #C8102E;
+  color: #fff;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: .8rem;
+  padding: 3px 9px;
+  border-radius: 4px;
+  letter-spacing: 1px;
+}
+
+.name-row {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+
+.name-row label {
+  font-size: .72rem;
+  color: #6A8FAF;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.name-row input {
+  background: #132033;
+  border: 1px solid #1E3A52;
+  color: #E8F0F8;
+  padding: 5px 9px;
+  border-radius: 6px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: .85rem;
+  width: 190px;
+}
+
+.name-row input:focus {
+  outline: 1px solid #C8A84B;
+}
+
+.submit-btn {
+  background: #C8A84B;
+  color: #0A1628;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: .95rem;
+  letter-spacing: 1px;
+  border: none;
+  padding: 6px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background .15s;
+}
+
+.submit-btn:hover {
+  background: #F0D080;
+}
+
+/* ─── Layout ──────────────────────────────────────────────────────── */
+.outer {
+  padding: .75rem 1rem 1.5rem;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.conf-section {
+  margin-bottom: 1rem;
+}
+
+.conf-label {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  padding: 4px 14px;
+  border-radius: 20px;
+  display: inline-block;
+  margin-bottom: .6rem;
+}
+
+.east-label {
+  background: #1a2040;
+  color: #6EA8F0;
+  border: 1px solid #2A3A70;
+}
+
+.west-label {
+  background: #2A1A20;
+  color: #F08080;
+  border: 1px solid #5A2A2A;
+}
+
+/* ─── Bracket Columns ─────────────────────────────────────────────── */
+.round-cols {
+  display: flex;
+  gap: 6px;
+  align-items: flex-start;
+  overflow-x: auto;
+}
+
+.round-col {
+  display: flex;
+  flex-direction: column;
+  min-width: 158px;
+}
+
+.round-title {
+  font-size: .6rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #6A8FAF;
+  margin-bottom: .4rem;
+  text-align: center;
+}
+
+.series-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ─── Series Card ─────────────────────────────────────────────────── */
+.series-card {
+  background: #132033;
+  border: 1px solid #1E3A52;
+  border-radius: 8px;
+  padding: 6px;
+  margin-bottom: 8px;
+  transition: border-color .2s;
+}
+
+.series-card.has-pick {
+  border-color: rgba(200, 168, 75, 0.27);
+}
+
+.matchup-row {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background .15s;
+  user-select: none;
+}
+
+.matchup-row:hover:not(.tbd) {
+  background: #1A2C42;
+}
+
+.matchup-row.winner {
+  background: #0F3D1F;
+}
+
+.matchup-row.loser {
+  opacity: .38;
+}
+
+.matchup-row.tbd {
+  cursor: default;
+  opacity: .5;
+}
+
+.seed {
+  font-size: .62rem;
+  color: #6A8FAF;
+  min-width: 11px;
+}
+
+.team-abb {
+  font-size: .88rem;
+  font-weight: 600;
+  letter-spacing: .4px;
+  flex: 1;
+}
+
+.games-sel {
+  background: transparent;
+  border: none;
+  color: #C8A84B;
+  font-size: .75rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  width: 30px;
+  text-align: right;
+}
+
+.games-sel:focus {
+  outline: none;
+}
+
+.divider {
+  height: 1px;
+  background: #1E3A52;
+  margin: 3px 0;
+}
+
+.reason-box {
+  width: 100%;
+  background: #0D1B2A;
+  border: none;
+  border-top: 1px solid #1E3A52;
+  color: #6A8FAF;
+  font-size: .7rem;
+  font-family: 'DM Sans', sans-serif;
+  padding: 4px 6px;
+  border-radius: 0 0 5px 5px;
+  resize: none;
+  margin-top: 3px;
+}
+
+.reason-box:focus {
+  outline: none;
+  color: #E8F0F8;
+}
+
+/* ─── Finals Center Box ───────────────────────────────────────────── */
+.finals-center {
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+.finals-box {
+  background: #0A1628;
+  border: 2px solid #C8A84B;
+  border-radius: 12px;
+  padding: 12px 18px;
+  min-width: 200px;
+  text-align: center;
+}
+
+.finals-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.8rem;
+  color: #C8A84B;
+  letter-spacing: 2px;
+  line-height: 1;
+}
+
+.finalist-chip {
+  background: #132033;
+  border: 1px solid #1E3A52;
+  border-radius: 6px;
+  padding: 4px 12px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  min-width: 60px;
+}
+
+.finalist-chip.set {
+  border-color: rgba(200, 168, 75, 0.27);
+  color: #C8A84B;
+}
+
+.finalist-chip.empty {
+  color: #6A8FAF;
+}
+
+.champ-pick-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+
+.champ-btn {
+  background: #132033;
+  border: 1px solid #1E3A52;
+  border-radius: 6px;
+  padding: 5px 14px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  cursor: pointer;
+  color: #E8F0F8;
+  transition: all .15s;
+}
+
+.champ-btn:hover:not(.empty-btn) {
+  background: #1A2C42;
+  border-color: rgba(200, 168, 75, 0.53);
+}
+
+.champ-btn.selected-champ {
+  background: #0F3D1F;
+  border-color: #C8A84B;
+  color: #C8A84B;
+}
+
+.champ-btn.empty-btn {
+  opacity: .4;
+  cursor: default;
+}
+
+.champ-games-sel {
+  background: #132033;
+  border: 1px solid #1E3A52;
+  color: #C8A84B;
+  font-size: .75rem;
+  border-radius: 4px;
+  padding: 2px 4px;
+  cursor: pointer;
+}
+
+.finals-reason {
+  width: 100%;
+  background: #0D1B2A;
+  border: 1px solid #1E3A52;
+  color: #6A8FAF;
+  font-size: .72rem;
+  font-family: 'DM Sans', sans-serif;
+  padding: 5px 7px;
+  border-radius: 6px;
+  resize: none;
+  margin-top: 6px;
+}
+
+.finals-reason:focus {
+  outline: none;
+  color: #E8F0F8;
+}
+
+/* ─── Submissions Panel ───────────────────────────────────────────── */
+.subs-panel {
+  background: #0A1628;
+  border-top: 2px solid #C8A84B;
+  padding: 1rem 1.25rem;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.subs-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.2rem;
+  color: #C8A84B;
+  letter-spacing: 2px;
+  margin-bottom: .6rem;
+}
+
+.sub-item {
+  background: #132033;
+  border: 1px solid #1E3A52;
+  border-radius: 8px;
+  padding: .55rem .9rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: .4rem;
+}
+
+.sub-name {
+  font-weight: 600;
+  font-size: .88rem;
+}
+
+.sub-detail {
+  font-size: .72rem;
+  color: #C8A84B;
+  margin-top: 1px;
+}
+
+.sub-note {
+  font-size: .68rem;
+  color: #6A8FAF;
+  margin-top: 2px;
+}
+
+.sub-time {
+  font-size: .66rem;
+  color: #6A8FAF;
+  white-space: nowrap;
+}
+
+/* ─── Toast ───────────────────────────────────────────────────────── */
+.toast {
+  position: fixed;
+  bottom: 18px;
+  right: 18px;
+  padding: 9px 16px;
+  border-radius: 8px;
+  font-size: .82rem;
+  font-weight: 500;
+  z-index: 999;
+  opacity: 0;
+  transition: opacity .3s;
+  pointer-events: none;
+}
+
+.toast.show {
+  opacity: 1;
+}
+
+/* ─── Select Options ──────────────────────────────────────────────── */
+select option {
+  background: #0D1B2A;
+  color: #E8F0F8;
+}
+
+/* ─── Mobile ──────────────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .name-row input {
+    width: 150px;
+  }
+
+  .round-col {
+    min-width: 140px;
+  }
+}

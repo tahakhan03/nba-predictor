@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NBA Playoff Predictor</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+
+    <div class="header">
+      <div style="display:flex;align-items:center;gap:.6rem">
+        <div class="nba-badge">NBA</div>
+        <div class="logo">Playoff Predictor</div>
+      </div>
+      <div class="name-row">
+        <label>Name</label>
+        <input type="text" id="userName" placeholder="First name + last initial" maxlength="20" />
+        <button class="submit-btn" onclick="submitPrediction()">Lock In ↗</button>
+      </div>
+    </div>
+
+    <div class="outer">
+      <div class="conf-section">
+        <div class="conf-label east-label">Eastern Conference</div>
+        <div class="round-cols" id="east-cols"></div>
+      </div>
+
+      <div class="finals-center">
+        <div class="finals-box">
+          <div class="finals-title">NBA Finals</div>
+          <div style="font-size:.65rem;color:#6A8FAF;letter-spacing:1px;text-transform:uppercase;margin-top:2px">🏆 Champion Pick</div>
+          <div style="display:flex;align-items:center;justify-content:center;gap:8px;margin-top:8px">
+            <div class="finalist-chip" id="fin-east">East ?</div>
+            <div style="font-size:.7rem;color:#6A8FAF">vs</div>
+            <div class="finalist-chip" id="fin-west">West ?</div>
+          </div>
+          <div class="champ-pick-row">
+            <button class="champ-btn empty-btn" id="champ-btn-east" onclick="pickChamp('east')">?</button>
+            <div style="font-size:.7rem;color:#6A8FAF">wins in</div>
+            <select class="champ-games-sel" id="champ-games">
+              <option>4</option><option>5</option><option selected>6</option><option>7</option>
+            </select>
+            <div style="font-size:.7rem;color:#6A8FAF">games</div>
+            <button class="champ-btn empty-btn" id="champ-btn-west" onclick="pickChamp('west')">?</button>
+          </div>
+          <textarea class="finals-reason" id="finals-reason" rows="2" placeholder="Why do they win it all?"></textarea>
+        </div>
+      </div>
+
+      <div class="conf-section">
+        <div class="conf-label west-label">Western Conference</div>
+        <div class="round-cols" id="west-cols"></div>
+      </div>
+    </div>
+
+    <div class="subs-panel">
+      <div class="subs-title">Submitted Predictions</div>
+      <div id="sub-list">
+        <div style="font-size:.8rem;color:#6A8FAF">No predictions yet — be the first!</div>
+      </div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <!-- Firebase SDKs (loaded as modules) -->
+    <script type="module" src="firebase.js"></script>
+    <!-- Main bracket logic -->
+    <script src="bracket.js"></script>
+
+  </body>
+</html>
