@@ -1,0 +1,594 @@
+/* ─── Nav buttons ─────────────────────────────────────────────────── */
+.nav-btn {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: .9rem;
+  letter-spacing: 1px;
+  padding: 6px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  border: 1px solid #1E3A52;
+  color: #6A8FAF;
+  transition: all .15s;
+}
+.nav-btn:hover {
+  border-color: #C8A84B;
+  color: #C8A84B;
+}
+.nav-btn.active {
+  background: #C8A84B;
+  color: #0A1628;
+  border-color: #C8A84B;
+}
+
+/* ─── Page layout ─────────────────────────────────────────────────── */
+.brackets-outer {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem 3rem;
+}
+
+.page-title-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: .75rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid #1E3A52;
+  padding-bottom: 1rem;
+}
+
+.page-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2rem;
+  letter-spacing: 2px;
+  color: #C8A84B;
+  line-height: 1;
+}
+
+.page-subtitle {
+  font-size: .78rem;
+  color: #6A8FAF;
+  margin-top: 4px;
+  letter-spacing: .5px;
+}
+
+.sort-row {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+
+.sort-label {
+  font-size: .72rem;
+  color: #6A8FAF;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.sort-select {
+  background: #132033;
+  border: 1px solid #1E3A52;
+  color: #E8F0F8;
+  font-family: 'DM Sans', sans-serif;
+  font-size: .82rem;
+  padding: 5px 9px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* ─── Loading / empty states ──────────────────────────────────────── */
+.loading-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 4rem 0;
+}
+
+.loading-spinner {
+  width: 32px;
+  height: 32px;
+  border: 2px solid #1E3A52;
+  border-top-color: #C8A84B;
+  border-radius: 50%;
+  animation: spin .7s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.loading-text {
+  font-size: .8rem;
+  color: #6A8FAF;
+  letter-spacing: .5px;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 4rem 0;
+}
+
+.empty-icon {
+  font-size: 2.5rem;
+  margin-bottom: .75rem;
+}
+
+.empty-text {
+  font-size: 1rem;
+  color: #6A8FAF;
+  margin-bottom: 1rem;
+}
+
+.empty-cta {
+  background: #C8A84B;
+  color: #0A1628;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: .95rem;
+  letter-spacing: 1px;
+  padding: 8px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+/* ─── Cards grid ──────────────────────────────────────────────────── */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1rem;
+}
+
+/* ─── Submission card ─────────────────────────────────────────────── */
+.sub-card {
+  background: #132033;
+  border: 1px solid #1E3A52;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: border-color .2s, transform .15s;
+  animation: fadeUp .3s ease both;
+}
+
+.sub-card:hover {
+  border-color: #C8A84B55;
+  transform: translateY(-2px);
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.card-header {
+  background: #0A1628;
+  padding: .75rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #1E3A52;
+}
+
+.card-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #1A3A5A;
+  border: 1px solid #C8A84B55;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1rem;
+  color: #C8A84B;
+  flex-shrink: 0;
+}
+
+.card-name {
+  font-weight: 600;
+  font-size: .95rem;
+  color: #E8F0F8;
+}
+
+.card-time {
+  font-size: .65rem;
+  color: #6A8FAF;
+  margin-top: 1px;
+}
+
+.card-champ-badge {
+  background: #0F3D1F;
+  border: 1px solid #C8A84B44;
+  border-radius: 20px;
+  padding: 3px 10px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: .8rem;
+  letter-spacing: 1px;
+  color: #C8A84B;
+  white-space: nowrap;
+}
+
+/* ─── Bracket preview inside card ────────────────────────────────── */
+.card-body {
+  padding: .75rem 1rem;
+}
+
+.conf-section-mini {
+  margin-bottom: .6rem;
+}
+
+.conf-label-mini {
+  font-size: .58rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: .35rem;
+  font-weight: 600;
+}
+
+.east-mini { color: #6EA8F0; }
+.west-mini { color: #F08080; }
+
+.rounds-row {
+  display: flex;
+  gap: 6px;
+  align-items: flex-start;
+}
+
+.round-mini {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.round-name-mini {
+  font-size: .52rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #3A5A7A;
+  margin-bottom: 2px;
+  text-align: center;
+}
+
+.pick-chip {
+  background: #0D1B2A;
+  border: 1px solid #1E3A52;
+  border-radius: 4px;
+  padding: 3px 6px;
+  font-size: .72rem;
+  font-weight: 600;
+  color: #E8F0F8;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pick-chip.champion {
+  background: #0F3D1F;
+  border-color: #C8A84B55;
+  color: #C8A84B;
+}
+
+.pick-chip.empty {
+  color: #3A5A7A;
+  border-color: #162840;
+  font-weight: 400;
+  font-size: .65rem;
+}
+
+.card-divider {
+  height: 1px;
+  background: #1E3A52;
+  margin: .6rem 0;
+}
+
+.card-finals-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .5rem;
+}
+
+.finals-matchup {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: .95rem;
+  letter-spacing: 1px;
+  color: #6A8FAF;
+}
+
+.finals-matchup span {
+  color: #E8F0F8;
+}
+
+.card-reason {
+  font-size: .7rem;
+  color: #6A8FAF;
+  font-style: italic;
+  margin-top: .4rem;
+  line-height: 1.4;
+  border-left: 2px solid #1E3A52;
+  padding-left: .5rem;
+}
+
+.view-full-btn {
+  width: 100%;
+  background: transparent;
+  border: 1px solid #1E3A52;
+  color: #6A8FAF;
+  font-family: 'DM Sans', sans-serif;
+  font-size: .75rem;
+  padding: 7px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: .6rem;
+  transition: all .15s;
+  letter-spacing: .5px;
+}
+
+.view-full-btn:hover {
+  border-color: #C8A84B55;
+  color: #C8A84B;
+  background: #0A1628;
+}
+
+/* ─── Modal ───────────────────────────────────────────────────────── */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 12, 22, 0.88);
+  z-index: 200;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.modal-overlay.open {
+  display: flex;
+}
+
+.modal-box {
+  background: #0D1B2A;
+  border: 1px solid #C8A84B55;
+  border-radius: 14px;
+  width: 100%;
+  max-width: 700px;
+  max-height: 88vh;
+  overflow-y: auto;
+  animation: modalIn .2s ease;
+}
+
+@keyframes modalIn {
+  from { opacity: 0; transform: scale(.96); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.modal-header {
+  background: #0A1628;
+  border-bottom: 1px solid #1E3A52;
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.modal-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+  color: #E8F0F8;
+}
+
+.modal-champ {
+  font-size: .75rem;
+  color: #C8A84B;
+  margin-top: 2px;
+}
+
+.modal-close {
+  background: #132033;
+  border: 1px solid #1E3A52;
+  color: #6A8FAF;
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: .85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all .15s;
+}
+
+.modal-close:hover {
+  border-color: #C8A84B;
+  color: #C8A84B;
+}
+
+.modal-body {
+  padding: 1.25rem;
+}
+
+/* ─── Modal bracket display ───────────────────────────────────────── */
+.modal-conf-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  display: inline-block;
+  margin-bottom: .75rem;
+}
+
+.modal-east { background: #1a2040; color: #6EA8F0; border: 1px solid #2A3A70; }
+.modal-west { background: #2A1A20; color: #F08080; border: 1px solid #5A2A2A; }
+
+.modal-rounds {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 1.25rem;
+  overflow-x: auto;
+}
+
+.modal-round-col {
+  min-width: 110px;
+  flex: 1;
+}
+
+.modal-round-title {
+  font-size: .58rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #6A8FAF;
+  margin-bottom: .4rem;
+  text-align: center;
+}
+
+.modal-series {
+  background: #132033;
+  border: 1px solid #1E3A52;
+  border-radius: 7px;
+  padding: 5px 7px;
+  margin-bottom: 6px;
+}
+
+.modal-series.has-winner {
+  border-color: #C8A84B33;
+}
+
+.modal-team-row {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 4px;
+  border-radius: 4px;
+  font-size: .78rem;
+}
+
+.modal-team-row.winner {
+  background: #0F3D1F;
+}
+
+.modal-team-row.loser {
+  opacity: .35;
+}
+
+.modal-team-seed {
+  font-size: .58rem;
+  color: #6A8FAF;
+  min-width: 10px;
+}
+
+.modal-team-abb {
+  font-weight: 600;
+  flex: 1;
+  letter-spacing: .4px;
+}
+
+.modal-team-games {
+  font-size: .65rem;
+  color: #C8A84B;
+  font-weight: 600;
+}
+
+.modal-divider {
+  height: 1px;
+  background: #1E3A52;
+  margin: 2px 0;
+}
+
+.modal-reason {
+  font-size: .65rem;
+  color: #6A8FAF;
+  font-style: italic;
+  margin-top: 4px;
+  padding-top: 4px;
+  border-top: 1px solid #162840;
+  line-height: 1.4;
+}
+
+.modal-finals-section {
+  background: #0A1628;
+  border: 1px solid #C8A84B44;
+  border-radius: 10px;
+  padding: .85rem 1rem;
+  margin-top: .5rem;
+}
+
+.modal-finals-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+  color: #C8A84B;
+  margin-bottom: .6rem;
+  text-align: center;
+}
+
+.modal-finals-matchup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: .6rem;
+}
+
+.modal-finalist {
+  background: #132033;
+  border: 1px solid #1E3A52;
+  border-radius: 6px;
+  padding: 5px 14px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  color: #E8F0F8;
+}
+
+.modal-finalist.champ {
+  background: #0F3D1F;
+  border-color: #C8A84B;
+  color: #C8A84B;
+}
+
+.modal-vs {
+  font-size: .7rem;
+  color: #6A8FAF;
+}
+
+.modal-champ-detail {
+  text-align: center;
+  font-size: .75rem;
+  color: #6A8FAF;
+}
+
+.modal-champ-detail span {
+  color: #C8A84B;
+  font-weight: 600;
+}
+
+.modal-finals-reason {
+  font-size: .72rem;
+  color: #6A8FAF;
+  font-style: italic;
+  margin-top: .5rem;
+  text-align: center;
+  line-height: 1.5;
+  border-top: 1px solid #1E3A52;
+  padding-top: .5rem;
+}
+
+/* ─── Stagger animation delays for cards ─────────────────────────── */
+.sub-card:nth-child(1)  { animation-delay: .03s; }
+.sub-card:nth-child(2)  { animation-delay: .06s; }
+.sub-card:nth-child(3)  { animation-delay: .09s; }
+.sub-card:nth-child(4)  { animation-delay: .12s; }
+.sub-card:nth-child(5)  { animation-delay: .15s; }
+.sub-card:nth-child(6)  { animation-delay: .18s; }
+.sub-card:nth-child(7)  { animation-delay: .21s; }
+.sub-card:nth-child(8)  { animation-delay: .24s; }
+
+@media (max-width: 600px) {
+  .cards-grid { grid-template-columns: 1fr; }
+  .modal-rounds { gap: 5px; }
+  .modal-round-col { min-width: 90px; }
+}
