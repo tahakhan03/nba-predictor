@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Leaderboard — NBA Playoff Predictor</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="brackets.css" />
+    <link rel="stylesheet" href="leaderboard.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+
+    <div class="header">
+      <div style="display:flex;align-items:center;gap:.6rem">
+        <div class="nba-badge">NBA</div>
+        <div class="logo">Playoff Predictor</div>
+      </div>
+      <div style="display:flex;gap:.5rem">
+        <a href="index.html" class="nav-btn">Submit</a>
+        <a href="brackets.html" class="nav-btn">View Brackets</a>
+        <a href="leaderboard.html" class="nav-btn active">Leaderboard</a>
+      </div>
+    </div>
+
+    <div class="lb-outer">
+
+      <!-- Scoring legend -->
+      <div class="scoring-legend">
+        <div class="legend-title">Scoring</div>
+        <div class="legend-items">
+          <div class="legend-item">
+            <div class="legend-pts winner-pts">5 pts</div>
+            <div class="legend-desc">Correct series winner</div>
+          </div>
+          <div class="legend-sep">+</div>
+          <div class="legend-item">
+            <div class="legend-pts exact-pts">15 pts</div>
+            <div class="legend-desc">Correct winner <em>and</em> exact score</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Progress bar -->
+      <div class="progress-section">
+        <div class="progress-label-row">
+          <span class="progress-label">Playoffs Progress</span>
+          <span class="progress-count" id="progress-count">0 / 15 series complete</span>
+        </div>
+        <div class="progress-bar-bg">
+          <div class="progress-bar-fill" id="progress-bar"></div>
+        </div>
+      </div>
+
+      <!-- Podium (top 3) -->
+      <div class="podium-row" id="podium-row"></div>
+
+      <!-- Full rankings table -->
+      <div class="lb-table-wrap">
+        <div class="lb-table-header">
+          <span class="col-rank">Rank</span>
+          <span class="col-name">Name</span>
+          <span class="col-winner">Winner Picks</span>
+          <span class="col-exact">Exact Scores</span>
+          <span class="col-pts">Points</span>
+        </div>
+        <div id="lb-rows"></div>
+      </div>
+
+      <!-- Empty state -->
+      <div id="lb-empty" class="lb-empty" style="display:none">
+        <div class="empty-icon">🏀</div>
+        <div class="empty-text">No predictions submitted yet</div>
+        <a href="index.html" class="empty-cta">Submit your bracket</a>
+      </div>
+
+      <!-- Loading state -->
+      <div id="lb-loading" class="loading-state">
+        <div class="loading-spinner"></div>
+        <div class="loading-text">Calculating scores...</div>
+      </div>
+
+    </div>
+
+    <script src="results.js"></script>
+    <script type="module" src="firebase-brackets.js"></script>
+    <script src="leaderboard.js"></script>
+
+  </body>
+</html>

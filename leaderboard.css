@@ -1,0 +1,373 @@
+/* ─── Page layout ─────────────────────────────────────────────────── */
+.lb-outer {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem 3rem;
+}
+
+/* ─── Scoring legend ──────────────────────────────────────────────── */
+.scoring-legend {
+  background: #0A1628;
+  border: 1px solid #1E3A52;
+  border-radius: 10px;
+  padding: .75rem 1.25rem;
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.legend-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  color: #6A8FAF;
+  min-width: 60px;
+}
+
+.legend-items {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  flex-wrap: wrap;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+
+.legend-pts {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: .95rem;
+  letter-spacing: 1px;
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+
+.winner-pts {
+  background: #1A2C42;
+  color: #6EA8F0;
+  border: 1px solid #2A3A70;
+}
+
+.exact-pts {
+  background: #0F3D1F;
+  color: #C8A84B;
+  border: 1px solid #C8A84B44;
+}
+
+.legend-desc {
+  font-size: .75rem;
+  color: #6A8FAF;
+}
+
+.legend-desc em {
+  color: #E8F0F8;
+  font-style: normal;
+}
+
+.legend-sep {
+  font-size: .9rem;
+  color: #3A5A7A;
+  font-weight: 600;
+}
+
+/* ─── Progress bar ────────────────────────────────────────────────── */
+.progress-section {
+  margin-bottom: 1.5rem;
+}
+
+.progress-label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: .4rem;
+}
+
+.progress-label {
+  font-size: .72rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #6A8FAF;
+}
+
+.progress-count {
+  font-size: .72rem;
+  color: #6A8FAF;
+}
+
+.progress-bar-bg {
+  height: 6px;
+  background: #132033;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #C8A84B, #F0D080);
+  border-radius: 3px;
+  transition: width .6s ease;
+  width: 0%;
+}
+
+/* ─── Podium (top 3) ──────────────────────────────────────────────── */
+.podium-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: .75rem;
+  margin-bottom: 1.75rem;
+  min-height: 160px;
+}
+
+.podium-card {
+  background: #132033;
+  border: 1px solid #1E3A52;
+  border-radius: 12px;
+  padding: .85rem .75rem;
+  text-align: center;
+  flex: 1;
+  max-width: 200px;
+  transition: border-color .2s;
+  animation: fadeUp .4s ease both;
+}
+
+.podium-card:hover {
+  border-color: #C8A84B44;
+}
+
+.podium-card.rank-1 {
+  border-color: #C8A84B55;
+  background: #0F1E0F;
+  order: 2;
+  padding-top: 1.25rem;
+}
+
+.podium-card.rank-2 {
+  order: 1;
+}
+
+.podium-card.rank-3 {
+  order: 3;
+}
+
+.podium-medal {
+  font-size: 1.5rem;
+  margin-bottom: .35rem;
+}
+
+.podium-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #1A3A5A;
+  border: 1px solid #C8A84B44;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.1rem;
+  color: #C8A84B;
+  margin: 0 auto .4rem;
+}
+
+.podium-card.rank-1 .podium-avatar {
+  width: 52px;
+  height: 52px;
+  font-size: 1.3rem;
+  border-color: #C8A84B88;
+  background: #1A3A1A;
+}
+
+.podium-name {
+  font-weight: 600;
+  font-size: .85rem;
+  color: #E8F0F8;
+  margin-bottom: .25rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.podium-pts {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.4rem;
+  letter-spacing: 1px;
+  color: #C8A84B;
+  line-height: 1;
+}
+
+.podium-card.rank-1 .podium-pts {
+  font-size: 1.8rem;
+}
+
+.podium-pts-label {
+  font-size: .6rem;
+  color: #6A8FAF;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.podium-breakdown {
+  font-size: .65rem;
+  color: #6A8FAF;
+  margin-top: .3rem;
+}
+
+/* ─── Rankings table ──────────────────────────────────────────────── */
+.lb-table-wrap {
+  background: #0A1628;
+  border: 1px solid #1E3A52;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.lb-table-header {
+  display: grid;
+  grid-template-columns: 48px 1fr 100px 100px 80px;
+  padding: .6rem 1rem;
+  background: #132033;
+  border-bottom: 1px solid #1E3A52;
+  font-size: .62rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #6A8FAF;
+}
+
+.lb-row {
+  display: grid;
+  grid-template-columns: 48px 1fr 100px 100px 80px;
+  padding: .65rem 1rem;
+  border-bottom: 1px solid #1E3A52;
+  align-items: center;
+  transition: background .15s;
+  animation: fadeUp .3s ease both;
+}
+
+.lb-row:last-child {
+  border-bottom: none;
+}
+
+.lb-row:hover {
+  background: #132033;
+}
+
+.lb-row.top-row {
+  background: #0D2010;
+}
+
+.lb-row.top-row:hover {
+  background: #0F2A14;
+}
+
+.col-rank {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1rem;
+  letter-spacing: 1px;
+}
+
+.rank-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.1rem;
+  color: #6A8FAF;
+}
+
+.rank-num.gold   { color: #C8A84B; }
+.rank-num.silver { color: #A0AEC0; }
+.rank-num.bronze { color: #C87941; }
+
+.col-name {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+}
+
+.row-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #1A3A5A;
+  border: 1px solid #1E3A52;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: .8rem;
+  color: #C8A84B;
+  flex-shrink: 0;
+}
+
+.row-name-text {
+  font-weight: 600;
+  font-size: .85rem;
+  color: #E8F0F8;
+}
+
+.col-winner, .col-exact {
+  text-align: center;
+  font-size: .82rem;
+  color: #6A8FAF;
+}
+
+.col-winner span, .col-exact span {
+  font-weight: 600;
+  color: #E8F0F8;
+}
+
+.col-pts {
+  text-align: right;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  color: #C8A84B;
+}
+
+.pts-zero {
+  color: #3A5A7A;
+}
+
+/* ─── No results yet state ────────────────────────────────────────── */
+.lb-empty {
+  text-align: center;
+  padding: 3rem 0;
+}
+
+/* ─── Tie indicator ───────────────────────────────────────────────── */
+.tie-badge {
+  font-size: .6rem;
+  background: #1A2C42;
+  color: #6A8FAF;
+  padding: 1px 5px;
+  border-radius: 3px;
+  margin-left: 4px;
+  vertical-align: middle;
+}
+
+/* ─── No picks yet notice ─────────────────────────────────────────── */
+.no-results-notice {
+  text-align: center;
+  padding: 2rem;
+  font-size: .8rem;
+  color: #6A8FAF;
+  border-top: 1px solid #1E3A52;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 600px) {
+  .lb-table-header,
+  .lb-row {
+    grid-template-columns: 36px 1fr 70px 70px 60px;
+    padding: .55rem .6rem;
+    font-size: .72rem;
+  }
+  .podium-card { max-width: 110px; }
+  .podium-name { font-size: .75rem; }
+}
