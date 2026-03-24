@@ -34,6 +34,26 @@ body {
   color: #C8A84B;
 }
 
+.made-by {
+  font-size: 11px;
+  color: #6A8FAF; /* matches your theme */
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-left: 8px;
+  opacity: 0.8;
+}
+.made-by {
+  font-size: 11px;
+  color: #6A8FAF;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-left: 8px;
+  opacity: 0;
+
+  /* Animation */
+  animation: fadeIn 1.2s ease forwards;
+  animation-delay: 0.5s;
+}
 .nba-badge {
   background: #C8102E;
   color: #fff;
@@ -445,5 +465,15 @@ select option {
 
   .round-col {
     min-width: 140px;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 0.8;
+    transform: translateY(0);
   }
 }
