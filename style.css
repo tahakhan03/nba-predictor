@@ -588,3 +588,8 @@ select option {
   color: #0A1628;
   border-color: #C8A84B;
 }
+
+/* ─── Hide old games dropdown completely ─────────────────────────── */
+.games-sel {
+  display: none !important;
+}

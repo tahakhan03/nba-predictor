@@ -7,7 +7,6 @@ import {
   onSnapshot,
 } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
 
-// ─── Your Firebase config ─────────────────────────────────────────
 const firebaseConfig = {
   apiKey:            "AIzaSyDtCwnv5xtWiMfkYbnspmFSY1jyaaqqubw",
   authDomain:        "nba-predictor-c0236.firebaseapp.com",
@@ -17,23 +16,25 @@ const firebaseConfig = {
   appId:             "1:978348396570:web:758309f36ce1792eab41a3",
 };
 
-// ─── Initialize ───────────────────────────────────────────────────
 const app = initializeApp(firebaseConfig);
 const db  = getFirestore(app);
 
-// ─── Real-time listener ───────────────────────────────────────────
-// Loads all submissions on page open and updates live as new ones arrive.
 const q = query(
   collection(db, 'predictions'),
   orderBy('timestamp', 'desc')
 );
 
+// Wait for DOM + brackets.js to be fully ready before firing
 onSnapshot(q, (snapshot) => {
-  const data = snapshot.docs.map((doc) => ({
-    id: doc.id,
-    ...doc.data(),
-  }));
-  if (typeof window.setSubmissions === 'function') {
-    window.setSubmissions(data);
+  const data = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+
+  function trySet() {
+    if (typeof window.setSubmissions === 'function') {
+      window.setSubmissions(data);
+    } else {
+      // brackets.js not ready yet — retry in 50ms
+      setTimeout(trySet, 50);
+    }
   }
+  trySet();
 });
