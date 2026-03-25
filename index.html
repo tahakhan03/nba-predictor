@@ -73,27 +73,106 @@
       </div>
     </div>
 
+    <div class="toast" id="toast"></div>
 
-    <!-- Games selection modal -->
-    <div id="games-modal" class="games-modal-overlay" onclick="closeGamesModal()">
-      <div class="games-modal-box" onclick="event.stopPropagation()">
-        <div class="games-modal-title" id="games-modal-title">How many games?</div>
-        <div class="games-modal-subtitle">Select the series score</div>
-        <div class="games-opts">
-          <button class="games-opt-btn" onclick="confirmGames(0)">4-0<span>Sweep</span></button>
-<button class="games-opt-btn" onclick="confirmGames(1)">4-1<span>5 games</span></button>
-<button class="games-opt-btn" onclick="confirmGames(2)">4-2<span>6 games</span></button>
-<button class="games-opt-btn" onclick="confirmGames(3)">4-3<span>7 games</span></button>
+    <!-- ── Games popup modal ── -->
+    <div id="games-modal" style="
+      display:none;
+      position:fixed;
+      inset:0;
+      background:rgba(5,12,22,0.88);
+      z-index:9999;
+      align-items:center;
+      justify-content:center;
+      padding:1rem;
+    ">
+      <div style="
+        background:#0D1B2A;
+        border:2px solid #C8A84B;
+        border-radius:16px;
+        padding:2rem 2rem 1.5rem;
+        width:100%;
+        max-width:320px;
+        font-family:'DM Sans',sans-serif;
+      ">
+        <div id="games-modal-title" style="
+          font-family:'Bebas Neue',sans-serif;
+          font-size:1.5rem;
+          letter-spacing:2px;
+          color:#E8F0F8;
+          text-align:center;
+          margin-bottom:.25rem;
+        ">In how many games?</div>
+
+        <div style="font-size:.72rem;color:#6A8FAF;text-align:center;text-transform:uppercase;letter-spacing:1px;margin-bottom:1.25rem;">
+          Select the series score
         </div>
-        <button class="games-modal-cancel" onclick="closeGamesModal()">Cancel</button>
+
+        <ul style="list-style:none;padding:0;margin:0 0 1.25rem;display:flex;flex-direction:column;gap:.5rem;">
+          <li>
+            <button onclick="confirmGames(0)" style="
+              width:100%;background:#132033;border:1px solid #1E3A52;
+              border-radius:8px;padding:.7rem 1rem;cursor:pointer;
+              display:flex;align-items:center;justify-content:space-between;
+              color:#E8F0F8;font-family:'Bebas Neue',sans-serif;font-size:1.1rem;
+              letter-spacing:1px;transition:all .15s;
+            " onmouseover="this.style.borderColor='#C8A84B';this.style.color='#C8A84B'"
+               onmouseout="this.style.borderColor='#1E3A52';this.style.color='#E8F0F8'">
+              <span>4-0</span>
+              <span style="font-family:'DM Sans',sans-serif;font-size:.72rem;color:#6A8FAF;font-weight:400;">Sweep</span>
+            </button>
+          </li>
+          <li>
+            <button onclick="confirmGames(1)" style="
+              width:100%;background:#132033;border:1px solid #1E3A52;
+              border-radius:8px;padding:.7rem 1rem;cursor:pointer;
+              display:flex;align-items:center;justify-content:space-between;
+              color:#E8F0F8;font-family:'Bebas Neue',sans-serif;font-size:1.1rem;
+              letter-spacing:1px;transition:all .15s;
+            " onmouseover="this.style.borderColor='#C8A84B';this.style.color='#C8A84B'"
+               onmouseout="this.style.borderColor='#1E3A52';this.style.color='#E8F0F8'">
+              <span>4-1</span>
+              <span style="font-family:'DM Sans',sans-serif;font-size:.72rem;color:#6A8FAF;font-weight:400;">5 games</span>
+            </button>
+          </li>
+          <li>
+            <button onclick="confirmGames(2)" style="
+              width:100%;background:#132033;border:1px solid #1E3A52;
+              border-radius:8px;padding:.7rem 1rem;cursor:pointer;
+              display:flex;align-items:center;justify-content:space-between;
+              color:#E8F0F8;font-family:'Bebas Neue',sans-serif;font-size:1.1rem;
+              letter-spacing:1px;transition:all .15s;
+            " onmouseover="this.style.borderColor='#C8A84B';this.style.color='#C8A84B'"
+               onmouseout="this.style.borderColor='#1E3A52';this.style.color='#E8F0F8'">
+              <span>4-2</span>
+              <span style="font-family:'DM Sans',sans-serif;font-size:.72rem;color:#6A8FAF;font-weight:400;">6 games</span>
+            </button>
+          </li>
+          <li>
+            <button onclick="confirmGames(3)" style="
+              width:100%;background:#132033;border:1px solid #1E3A52;
+              border-radius:8px;padding:.7rem 1rem;cursor:pointer;
+              display:flex;align-items:center;justify-content:space-between;
+              color:#E8F0F8;font-family:'Bebas Neue',sans-serif;font-size:1.1rem;
+              letter-spacing:1px;transition:all .15s;
+            " onmouseover="this.style.borderColor='#C8A84B';this.style.color='#C8A84B'"
+               onmouseout="this.style.borderColor='#1E3A52';this.style.color='#E8F0F8'">
+              <span>4-3</span>
+              <span style="font-family:'DM Sans',sans-serif;font-size:.72rem;color:#6A8FAF;font-weight:400;">7 games</span>
+            </button>
+          </li>
+        </ul>
+
+        <button onclick="closeGamesModal()" style="
+          width:100%;background:transparent;
+          border:1px solid #1E3A52;color:#6A8FAF;
+          font-family:'DM Sans',sans-serif;font-size:.8rem;
+          padding:8px;border-radius:8px;cursor:pointer;
+        ">Cancel</button>
       </div>
     </div>
 
-    <div class="toast" id="toast"></div>
-
-    <!-- Firebase SDKs (loaded as modules) -->
     <script type="module" src="firebase.js"></script>
-    <!-- Main bracket logic -->
     <script src="bracket.js"></script>
 
   </body>
