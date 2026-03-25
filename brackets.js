@@ -359,8 +359,3 @@ function showToast(msg, bg) {
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') closeGamesModal();
 });
-
-// ─── Init ──────────────────────────────────────────────────────────
-renderConf('east');
-renderConf('west');
-renderSubs();
