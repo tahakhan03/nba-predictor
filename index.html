@@ -14,10 +14,10 @@
 
     <div class="header">
       <div style="display:flex;align-items:center;gap:.6rem">
-  <div class="nba-badge">NBA</div>
-  <div class="logo">Playoff Predictor</div>
-  <div class="made-by">Made by Taha Khan</div>
-</div>
+        <div class="nba-badge">NBA</div>
+        <div class="logo">Playoff Predictor</div>
+        <div class="made-by">Made by Taha Khan</div>
+      </div>
       <div style="display:flex;align-items:center;gap:.75rem;flex-wrap:wrap">
         <div style="display:flex;gap:.5rem">
           <a href="index.html" class="nav-btn active">Submit</a>
@@ -70,6 +70,22 @@
       <div class="subs-title">Submitted Predictions</div>
       <div id="sub-list">
         <div style="font-size:.8rem;color:#6A8FAF">No predictions yet — be the first!</div>
+      </div>
+    </div>
+
+
+    <!-- Games selection modal -->
+    <div id="games-modal" class="games-modal-overlay" onclick="closeGamesModal()">
+      <div class="games-modal-box" onclick="event.stopPropagation()">
+        <div class="games-modal-title" id="games-modal-title">How many games?</div>
+        <div class="games-modal-subtitle">Select the series score</div>
+        <div class="games-opts">
+          <button class="games-opt-btn" onclick="confirmGames(0)">4-0<span>Sweep</span></button>
+<button class="games-opt-btn" onclick="confirmGames(1)">4-1<span>5 games</span></button>
+<button class="games-opt-btn" onclick="confirmGames(2)">4-2<span>6 games</span></button>
+<button class="games-opt-btn" onclick="confirmGames(3)">4-3<span>7 games</span></button>
+        </div>
+        <button class="games-modal-cancel" onclick="closeGamesModal()">Cancel</button>
       </div>
     </div>
 

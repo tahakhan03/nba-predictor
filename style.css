@@ -34,26 +34,6 @@ body {
   color: #C8A84B;
 }
 
-.made-by {
-  font-size: 11px;
-  color: #6A8FAF; /* matches your theme */
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  margin-left: 8px;
-  opacity: 0.8;
-}
-.made-by {
-  font-size: 11px;
-  color: #6A8FAF;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  margin-left: 8px;
-  opacity: 0;
-
-  /* Animation */
-  animation: fadeIn 1.2s ease forwards;
-  animation-delay: 0.5s;
-}
 .nba-badge {
   background: #C8102E;
   color: #fff;
@@ -467,13 +447,144 @@ select option {
     min-width: 140px;
   }
 }
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-4px);
-  }
-  to {
-    opacity: 0.8;
-    transform: translateY(0);
-  }
+
+/* ─── Made by credit ──────────────────────────────────────────────── */
+.made-by {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: 1rem;
+  font-style: italic;
+  color: #C8102E;
+  letter-spacing: .5px;
+  opacity: .9;
+  margin-left: .25rem;
+}
+
+/* ─── Games selection modal ───────────────────────────────────────── */
+.games-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 12, 22, 0.85);
+  z-index: 300;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.games-modal-overlay.open {
+  display: flex;
+}
+
+.games-modal-box {
+  background: #0D1B2A;
+  border: 2px solid #C8A84B55;
+  border-radius: 14px;
+  padding: 1.5rem 1.75rem;
+  width: 100%;
+  max-width: 340px;
+  text-align: center;
+  animation: modalIn .18s ease;
+}
+
+.games-modal-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.4rem;
+  letter-spacing: 2px;
+  color: #E8F0F8;
+  margin-bottom: .2rem;
+}
+
+.games-modal-subtitle {
+  font-size: .72rem;
+  color: #6A8FAF;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 1.25rem;
+}
+
+.games-opts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: .6rem;
+  margin-bottom: 1rem;
+}
+
+.games-opt-btn {
+  background: #132033;
+  border: 1px solid #1E3A52;
+  border-radius: 8px;
+  padding: .75rem .5rem;
+  cursor: pointer;
+  transition: all .15s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  color: #E8F0F8;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.3rem;
+  letter-spacing: 1px;
+}
+
+.games-opt-btn span {
+  font-family: 'DM Sans', sans-serif;
+  font-size: .65rem;
+  color: #6A8FAF;
+  font-weight: 400;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+}
+
+.games-opt-btn:hover {
+  background: #1A2C42;
+  border-color: #C8A84B88;
+  color: #C8A84B;
+}
+
+.games-opt-btn:hover span {
+  color: #C8A84B99;
+}
+
+.games-opt-btn.selected {
+  background: #0F3D1F;
+  border-color: #C8A84B;
+  color: #C8A84B;
+}
+
+.games-modal-cancel {
+  background: transparent;
+  border: 1px solid #1E3A52;
+  color: #6A8FAF;
+  font-family: 'DM Sans', sans-serif;
+  font-size: .78rem;
+  padding: 7px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all .15s;
+  width: 100%;
+}
+
+.games-modal-cancel:hover {
+  border-color: #C8102E;
+  color: #C8102E;
+}
+
+/* ─── Home nav button ─────────────────────────────────────────────── */
+.home-btn {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: .9rem;
+  letter-spacing: 1px;
+  padding: 6px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  border: 1px solid #C8A84B88;
+  color: #C8A84B;
+  background: #0F1E0F;
+  transition: all .15s;
+}
+
+.home-btn:hover {
+  background: #C8A84B;
+  color: #0A1628;
+  border-color: #C8A84B;
 }
