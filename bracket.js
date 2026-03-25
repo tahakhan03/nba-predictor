@@ -35,7 +35,6 @@ function showGamesModal(conf, round, seriesIdx, winner) {
   const modal = document.getElementById('games-modal');
   const title = document.getElementById('games-modal-title');
   title.textContent = winner + ' wins in how many games?';
-  // Use inline style flex to show — no CSS class dependency
   modal.style.display = 'flex';
 }
 
@@ -55,7 +54,6 @@ function confirmGames(loserGames) {
   renderConf(conf);
 }
 
-// Close on Escape key
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') closeGamesModal();
 });
@@ -82,7 +80,6 @@ function renderConf(conf) {
   const roundNames = ['First Round', 'Conf. Semifinals', 'Conf. Finals'];
   const seriesCounts = [4, 2, 1];
   const topOffsets = [0, 52, 158];
-
   for (let r = 0; r < 3; r++) {
     const col = document.createElement('div');
     col.className = 'round-col';
@@ -153,7 +150,6 @@ function buildCard(conf, round, seriesIdx, teams) {
   const card = document.createElement('div');
   card.className = 'series-card' + (pick.winner ? ' has-pick' : '');
   card.id = `card_${conf}_${round}_${seriesIdx}`;
-
   teams.forEach((team, ti) => {
     const isTbd = team.abb === 'TBD';
     const row = document.createElement('div');
@@ -161,33 +157,25 @@ function buildCard(conf, round, seriesIdx, teams) {
     if (!isTbd && pick.winner) {
       row.classList.add(pick.winner === team.abb ? 'winner' : 'loser');
     }
-
     const seedEl = document.createElement('span');
     seedEl.className = 'seed';
     seedEl.textContent = team.seed || '';
-
     const abbEl = document.createElement('span');
     abbEl.className = 'team-abb';
     abbEl.textContent = team.abb;
-
-    // Score badge shown after pick
     const badge = document.createElement('span');
     if (pick.winner === team.abb && pick.games !== undefined) {
       badge.textContent = `4-${pick.games}`;
       badge.style.cssText = 'font-size:.7rem;color:#C8A84B;font-weight:700;margin-left:auto;';
     }
-
     row.appendChild(seedEl);
     row.appendChild(abbEl);
     row.appendChild(badge);
-
-    // Click opens games modal immediately
     if (!isTbd) {
       row.addEventListener('click', () => {
         showGamesModal(conf, round, seriesIdx, team.abb);
       });
     }
-
     card.appendChild(row);
     if (ti === 0) {
       const d = document.createElement('div');
@@ -195,7 +183,6 @@ function buildCard(conf, round, seriesIdx, teams) {
       card.appendChild(d);
     }
   });
-
   const ta = document.createElement('textarea');
   ta.className = 'reason-box';
   ta.rows = 2;
@@ -246,6 +233,7 @@ function teamsForSemi(conf, semiIdx) {
     { abb: picks[conf][0][semiIdx * 2 + 1]?.winner || 'TBD' },
   ];
 }
+
 function teamsForFinals(conf) {
   return [
     { abb: picks[conf][1][0]?.winner || 'TBD' },
@@ -281,7 +269,13 @@ async function submitPrediction() {
   const name = document.getElementById('userName').value.trim();
   if (!name) { showToast('Enter your name first!', '#C8102E'); return; }
 
-  // Ensure every series has a winner + score
+  // ─── Profanity filter ──────────────────────────────────────────
+  const blockedWords = ['fag','fuck','dumb','idiot','scam','scammer','shit','bitch','retarded','retard'];
+  const nameLower = name.toLowerCase();
+  const hasProfanity = blockedWords.some(word => nameLower.includes(word));
+  if (hasProfanity) { showToast('Please enter an appropriate name.', '#C8102E'); return; }
+
+  // ─── Ensure every series has a winner + score ──────────────────
   let missing = false;
   ['east', 'west'].forEach(conf => {
     [0, 1, 2].forEach(r => {
