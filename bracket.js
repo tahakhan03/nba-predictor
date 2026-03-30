@@ -266,6 +266,13 @@ function pickChamp(side) {
 
 // ─── Submit ────────────────────────────────────────────────────────
 async function submitPrediction() {
+  // ─── Check if submissions are locked ──────────────────────────
+  const DEADLINE = new Date('2025-04-28T23:00:00Z');
+  if (new Date() >= DEADLINE) {
+    showToast('Brackets are locked — playoffs have started!', '#C8102E');
+    return;
+  }
+
   const name = document.getElementById('userName').value.trim();
   if (!name) { showToast('Enter your name first!', '#C8102E'); return; }
 
