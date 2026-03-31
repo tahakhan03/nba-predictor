@@ -191,16 +191,7 @@ function buildCard(conf, round, seriesIdx, teams) {
     if(ti===0) { const d=document.createElement('div'); d.className='divider'; card.appendChild(d); }
   });
 
-  const ta = document.createElement('textarea');
-  ta.className = 'reason-box';
-  ta.rows = 2;
-  ta.placeholder = 'Why? (optional)';
-  ta.value = pick.reason||'';
-  ta.addEventListener('input', () => {
-    if(!picks[conf][round][seriesIdx]) picks[conf][round][seriesIdx]={};
-    picks[conf][round][seriesIdx].reason = ta.value;
-  });
-  card.appendChild(ta);
+  
   return card;
 }
 
