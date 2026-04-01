@@ -21,6 +21,16 @@ window.setSubmissions = function (data) {
   allSubmissions = data;
   const sel = document.getElementById('sort-select');
   renderAll(sel ? sel.value : 'newest');
+
+  // #6 If opened via share link, auto-open that person's bracket
+  const params = new URLSearchParams(window.location.search);
+  const shareId = params.get('id');
+  if (shareId) {
+    const target = allSubmissions.find(s => s.shareId === shareId);
+    if (target) {
+      setTimeout(() => openModal(target), 300);
+    }
+  }
 };
 
 // ─── Sort ──────────────────────────────────────────────────────────

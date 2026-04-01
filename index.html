@@ -197,6 +197,43 @@
       setInterval(updateCountdown, 1000);
     </script>
 
+
+    <!-- ── Share modal (shown after successful submission) ── -->
+    <div id="share-modal" style="
+      display:none;position:fixed;inset:0;
+      background:rgba(5,12,22,0.92);z-index:9999;
+      align-items:center;justify-content:center;padding:1rem;
+    ">
+      <div style="
+        background:#0F1D2E;border:2px solid #C8A84B;border-radius:16px;
+        padding:2rem;width:100%;max-width:380px;font-family:'DM Sans',sans-serif;text-align:center;
+      ">
+        <div style="font-size:2rem;margin-bottom:.5rem;">🏆</div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:2px;color:#E8F0F8;margin-bottom:.25rem;">
+          Bracket Locked In!
+        </div>
+        <div style="font-size:.82rem;color:#9BB5CC;margin-bottom:1.5rem;">
+          Share your bracket with your group
+        </div>
+        <div style="display:flex;gap:.5rem;margin-bottom:1rem;">
+          <input id="share-url" type="text" readonly style="
+            flex:1;background:#132033;border:1px solid #1E3A52;color:#C8A84B;
+            padding:8px 10px;border-radius:7px;font-size:.78rem;font-family:'DM Sans',sans-serif;
+          " />
+          <button onclick="copyShareLink()" style="
+            background:#C8A84B;color:#0B1520;border:none;padding:8px 16px;
+            border-radius:7px;font-family:'Bebas Neue',sans-serif;font-size:.95rem;
+            letter-spacing:1px;cursor:pointer;white-space:nowrap;
+          ">Copy Link</button>
+        </div>
+        <button onclick="closeShareModal()" style="
+          width:100%;background:transparent;border:1px solid #1E3A52;color:#5A7A96;
+          font-family:'DM Sans',sans-serif;font-size:.8rem;padding:8px;
+          border-radius:7px;cursor:pointer;
+        ">Close</button>
+      </div>
+    </div>
+
     <script type="module" src="firebase.js"></script>
     <script src="bracket.js"></script>
 

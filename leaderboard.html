@@ -25,6 +25,12 @@
       </nav>
     </div>
 
+    <!-- ── #4 Results banner ── -->
+    <div id="results-banner" style="
+      display:none;background:#0F1D2E;border-bottom:1px solid #1E3A52;
+      padding:.5rem 1.5rem;gap:1rem;align-items:center;overflow:hidden;
+    "></div>
+
     <div class="lb-outer">
 
       <!-- Scoring legend -->
@@ -41,6 +47,7 @@
             <div class="legend-desc">Correct winner <em>and</em> exact score</div>
           </div>
         </div>
+        <div style="margin-left:auto;font-size:.72rem;color:#5A7A96;">Click any row to see full breakdown</div>
       </div>
 
       <!-- Progress bar -->
@@ -54,17 +61,17 @@
         </div>
       </div>
 
-      <!-- Podium (top 3) -->
+      <!-- Podium -->
       <div class="podium-row" id="podium-row"></div>
 
-      <!-- Full rankings table -->
+      <!-- Rankings table -->
       <div class="lb-table-wrap">
         <div class="lb-table-header">
           <span class="col-rank">Rank</span>
-          <span class="col-name">Name</span>
-          <span class="col-winner">Winner Picks</span>
-          <span class="col-exact">Exact Scores</span>
-          <span class="col-pts">Points</span>
+          <span class="col-name">Name / Champion Pick</span>
+          <span class="col-winner">Winners</span>
+          <span class="col-exact">Exact</span>
+          <span class="col-pts">Pts</span>
         </div>
         <div id="lb-rows"></div>
       </div>
@@ -84,9 +91,44 @@
 
     </div>
 
+    <!-- ── #5 Breakdown modal ── -->
+    <div id="breakdown-modal" style="
+      display:none;position:fixed;inset:0;
+      background:rgba(5,12,22,0.92);z-index:9999;
+      align-items:center;justify-content:center;padding:1rem;
+    " onclick="closeBreakdown()">
+      <div style="
+        background:#0F1D2E;border:1px solid #1E3A52;border-radius:14px;
+        width:100%;max-width:420px;max-height:85vh;overflow-y:auto;
+      " onclick="event.stopPropagation()">
+        <div style="
+          background:#0B1520;border-bottom:1px solid #1E3A52;padding:.9rem 1.25rem;
+          display:flex;align-items:center;justify-content:space-between;
+          position:sticky;top:0;z-index:1;border-radius:14px 14px 0 0;
+        ">
+          <div>
+            <div id="bd-name" style="font-family:'Bebas Neue',sans-serif;font-size:1.2rem;letter-spacing:1px;color:#E8F0F8;"></div>
+            <div id="bd-pts" style="font-size:.75rem;color:#C8A84B;font-weight:600;"></div>
+          </div>
+          <button onclick="closeBreakdown()" style="
+            background:#132033;border:1px solid #1E3A52;color:#9BB5CC;
+            width:30px;height:30px;border-radius:6px;cursor:pointer;font-size:.85rem;
+          ">✕</button>
+        </div>
+        <div id="bd-body" style="padding:1rem 1.25rem 1.25rem;"></div>
+      </div>
+    </div>
+
+    <!-- Toast for leaderboard page -->
+    <div id="lb-toast" style="
+      position:fixed;bottom:20px;right:20px;background:#1A6B35;color:#fff;
+      padding:9px 16px;border-radius:8px;font-size:.82rem;font-weight:500;
+      opacity:0;transition:opacity .3s;pointer-events:none;z-index:9999;
+    "></div>
+
     <script src="results.js"></script>
-    <script type="module" src="firebase-brackets.js"></script>
     <script src="leaderboard.js"></script>
+    <script type="module" src="firebase-brackets.js"></script>
 
   </body>
 </html>
