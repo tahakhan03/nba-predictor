@@ -7,10 +7,10 @@ const SEEDS = {
     [{ seed: 2, abb: 'BOS' }, { seed: 7, abb: 'PHI' }],
   ],
   west: [
-    [{ seed: 1, abb: 'OKC' }, { seed: 8, abb: 'LAC' }],
-    [{ seed: 4, abb: 'HOU' }, { seed: 5, abb: 'DEN' }],
-    [{ seed: 3, abb: 'LAL' }, { seed: 6, abb: 'MIN' }],
-    [{ seed: 2, abb: 'SAS' }, { seed: 7, abb: 'PHX' }],
+    [{ seed: 1, abb: 'OKC' }, { seed: 8, abb: 'PHX' }],
+    [{ seed: 4, abb: 'LAL' }, { seed: 5, abb: 'HOU' }],
+    [{ seed: 3, abb: 'DEN' }, { seed: 6, abb: 'MIN' }],
+    [{ seed: 2, abb: 'SAS' }, { seed: 7, abb: 'POR' }],
   ],
 };
 
@@ -200,7 +200,7 @@ function pickChamp(side) {
 
 // ─── Submit ────────────────────────────────────────────────────────
 async function submitPrediction() {
-  const DEADLINE = new Date('2026-04-28T23:00:00Z');
+  const DEADLINE = new Date('2026-04-30T04:59:00Z');
   if(new Date()>=DEADLINE) { showToast('Brackets are locked — playoffs have started!','#C8102E'); return; }
 
   const name = document.getElementById('userName').value.trim();

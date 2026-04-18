@@ -7,10 +7,10 @@ const SEEDS = {
     [{ seed: 2, abb: 'BOS' }, { seed: 7, abb: 'PHI' }],
   ],
   west: [
-    [{ seed: 1, abb: 'OKC' }, { seed: 8, abb: 'LAC' }],
-    [{ seed: 4, abb: 'HOU' }, { seed: 5, abb: 'DEN' }],
-    [{ seed: 3, abb: 'LAL' }, { seed: 6, abb: 'MIN' }],
-    [{ seed: 2, abb: 'SAS' }, { seed: 7, abb: 'PHX' }],
+    [{ seed: 1, abb: 'OKC' }, { seed: 8, abb: 'PHX' }],
+    [{ seed: 4, abb: 'LAL' }, { seed: 5, abb: 'HOU' }],
+    [{ seed: 3, abb: 'DEN' }, { seed: 6, abb: 'MIN' }],
+    [{ seed: 2, abb: 'SAS' }, { seed: 7, abb: 'POR' }],
   ],
 };
 
