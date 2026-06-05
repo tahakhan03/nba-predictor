@@ -11,7 +11,7 @@ const RESULTS = {
       1: { winner: 'NYK', games: 0 },  // NYK def. PHI  4-0
     },
     2: {
-      0: { winner: null, games: null }, // East Conference Finals: CLE vs NYK
+      0: { winner: 'NYK', games: 0 },  // NYK def. CLE  4-0  — East Champions
     },
   },
   west: {
@@ -26,7 +26,7 @@ const RESULTS = {
       1: { winner: 'SAS', games: 2 },  // SAS def. MIN  4-2
     },
     2: {
-      0: { winner: null, games: null }, // West Conference Finals: OKC vs SAS
+      0: { winner: 'SAS', games: 3 },  // SAS def. OKC  4-3  — West Champions
     },
   },
   finals: {
